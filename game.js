@@ -39,10 +39,11 @@ function game() {
     console.log('The game is started!!!')
     for (let i = 0; i< numberOfRounds;i++) {
       let userSelection = prompt('Choose you Beat!');
-      if (userSelection == null) {
+      if ( userSelection == null) {
         console.log('Exit the Game!')
-        return alert('You exit the Game! Reload to start again!');
-      }
+        return;
+        
+      } 
       userSelection = userSelection.toLowerCase();
       let computerSelection = getComputerChoice();
 
@@ -50,7 +51,8 @@ function game() {
         playRound(userSelection,computerSelection);
         
       } else {
-        console.log('Incorrect choose! Do you really understand how to play this game?')
+        alert('You type incorrect!')
+        console.log('Started a new Game!')
         userScore = 0;
         compScore = 0;
         return game()
@@ -70,7 +72,7 @@ function game() {
     alert('This is too much bro! Pick again!')
     game();
   }  else if (isNaN(numberOfRounds)) {
-    console.log(numberOfRounds)
+    
     alert('This is not a number bro! Pick again')
     game()
   } 
